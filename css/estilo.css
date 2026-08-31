@@ -158,24 +158,23 @@ main {
   filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.15));
   transition: opacity 0.3s ease, transform 0.5s ease;
 }
-#icones_languagem,h5{
+.icones_languagem h5 {
   opacity: 0;
-  transform:translateY(-8px) ;
+  transform: translateY(-8px);
   transition: opacity 0.3s ease, text-shadow 0.3s ease;
-  
-} 
-img:hover + h5{
- opacity: 1;
- text-shadow: 0px 3px 5px #b2910e;
- color: #facc15;
- 
-} 
+}
+
+.img-hover:hover + h5,
+img:hover + h5 {
+  opacity: 1;
+  text-shadow: 0px 3px 5px #b2910e;
+  color: #facc15;
+}
 
 .icones_languagem img:hover {
- transform:translateY(-8px);
+  transform: translateY(-8px);
+}
 
-
-} 
 
 
 
@@ -186,18 +185,19 @@ img:hover + h5{
   justify-content: center;
   align-items: center;
   gap: 16px;
+  width: min(1100px, 100%);
+  margin: 0 auto;
   padding: 40px 20px;
   background-color: #111827;
 }
-.card-viewport{
-  display: flex;
-  grid-area: 24px;
-  overflow-x: auto;
+
+.card-viewport {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
   padding: 12px 8px;
-  gap: 20px;
-  scroll-snap-type: x proximity; 
-     /*fade nas pontas*/
-     -webkit-mask-image:lineargradient(
+  scroll-snap-type: x proximity;
+  -webkit-mask-image: linear-gradient(
     to right,
     transparent,
     black 10%,
@@ -212,18 +212,18 @@ img:hover + h5{
     transparent
   );
 }
-.card:hover{
-  transform: translateY(-8px);
-  box-shadow: 0 18px 28px rgba(250, 204, 21, 0.22);
-}
-.card:hover::before {
-  transform: translateX(100%);
-}
 
+.card-track {
+  display: flex;
+  gap: 20px;
+  transition: transform 0.45s ease;
+  will-change: transform;
+}
 
 .card {
+  flex: 0 0 calc((100% - 40px) / 3);
+  max-width: calc((100% - 40px) / 3);
   min-height: 190px;
-  width: 190px;
   padding: 20px;
   background: linear-gradient(135deg, #facc15, #d97706);
   border-radius: 16px;
@@ -232,7 +232,24 @@ img:hover + h5{
   position: relative;
   overflow: hidden;
   scroll-snap-align: start;
+}
 
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent 30%, rgba(255, 255, 255, 0.22), transparent 70%);
+  transform: translateX(-120%);
+  transition: transform 0.7s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 18px 28px rgba(250, 204, 21, 0.22);
+}
+
+.card:hover::before {
+  transform: translateX(120%);
 }
 
 .card img {
@@ -240,23 +257,28 @@ img:hover + h5{
   height: 42px;
   object-fit: contain;
   margin-bottom: 12px;
-  
+  position: relative;
+  z-index: 1;
 }
 
 .card h3 {
   margin-bottom: 8px;
   font-size: 1.4rem;
   color: #111827;
+  position: relative;
+  z-index: 1;
 }
+
 .card p {
   margin: 0;
   font-size: 0.9rem;
   text-align: center;
   color: rgba(17, 24, 39, 0.9);
 }
-.seta{
-  width: 32px;
-  height: 32px;
+
+.seta {
+  width: 36px;
+  height: 36px;
   border: none;
   border-radius: 50%;
   background: rgba(250, 204, 21, 0.18);
@@ -264,10 +286,14 @@ img:hover + h5{
   font-size: 1.3rem;
   line-height: 1.5;
   cursor: pointer;
-  transition: transform 0.2s, background 0.2s ease;
+  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 0 0 1px rgba(250, 204, 21, 0.12);
 }
-.seta:hover{
+
+.seta:hover {
   transform: scale(1.09);
+  background: rgba(250, 204, 21, 0.26);
+  box-shadow: 0 0 16px rgba(250, 204, 21, 0.2);
 }
 
 /* FOOTER */
@@ -277,9 +303,25 @@ footer {
   text-align: center;
   background: #0f1117;
 }
-@media (max-width:700px) {
-  .seta{
+
+@media (max-width: 900px) {
+  .card {
+    flex-basis: calc((100% - 20px) / 2);
+    max-width: calc((100% - 20px) / 2);
+  }
+}
+
+@media (max-width: 700px) {
+  .habilidades {
+    padding: 20px 10px;
+  }
+
+  .card {
+    flex-basis: 100%;
+    max-width: 100%;
+  }
+
+  .seta {
     display: none;
   }
-  
 }
