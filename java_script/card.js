@@ -1,46 +1,50 @@
-const track = document.querySelector('.card-track');
-const cards = Array.from(document.querySelectorAll('.card'));
-const prevBtn = document.querySelector('.seta-esquerda');
-const nextBtn = document.querySelector('.seta-direita');
+const trilho = document.querySelector('.card-track');
+const cards = document.querySelectorAll('.card');
+const botaoAnterior = document.querySelector('.seta-esquerda');
+const botaoProximo = document.querySelector('.seta-direita');
 
-if (!track || !cards.length || !prevBtn || !nextBtn) {
+if (!trilho || !cards.length || !botaoAnterior || !botaoProximo) {
   console.warn('Slider não encontrado. Verifique os seletores do HTML.');
 } else {
-  let index = 0;
+  let indiceAtual = 0;
 
-  function getVisibleCards() {
+  function quantidadeVisivel() {
     if (window.innerWidth <= 700) return 1;
     if (window.innerWidth <= 900) return 2;
     return 3;
   }
 
-  function updateSlider() {
-    const visibleCards = getVisibleCards();
-    const gap = parseFloat(getComputedStyle(track).gap) || 20;
-    const cardWidth = cards[0].getBoundingClientRect().width + gap;
-    const maxIndex = Math.max(cards.length - visibleCards, 0);
-
-    index = Math.min(index, maxIndex);
-    track.style.transform = `translateX(-${index * cardWidth}px)`;
+  function maiorIndice() {
+    return Math.max(cards.length - quantidadeVisivel(), 0);
   }
 
-  nextBtn.addEventListener('click', () => {
-    const visibleCards = getVisibleCards();
-    const maxIndex = Math.max(cards.length - visibleCards, 0);
+  function atualizarSlider() {
+    const espacamento = parseFloat(getComputedStyle(trilho).gap) || 20;
+    const larguraCard = cards[0].getBoundingClientRect().width + espacamento;
 
-    index = index >= maxIndex ? 0 : index + 1;
-    updateSlider();
+    indiceAtual = Math.min(indiceAtual, maiorIndice());
+    trilho.style.transform = `translateX(-${indiceAtual * larguraCard}px)`;
+  }
+
+  botaoProximo.addEventListener('click', () => {
+    if (indiceAtual >= maiorIndice()) {
+      indiceAtual = 0;
+    } else {
+      indiceAtual = indiceAtual + 1;
+    }
+    atualizarSlider();
   });
 
-  prevBtn.addEventListener('click', () => {
-    const visibleCards = getVisibleCards();
-    const maxIndex = Math.max(cards.length - visibleCards, 0);
-
-    index = index <= 0 ? maxIndex : index - 1;
-    updateSlider();
+  botaoAnterior.addEventListener('click', () => {
+    if (indiceAtual <= 0){
+      indiceAtual = maiorIndice();
+    }else{
+      indiceAtual = indiceAtual - 1;
+    }
+    atualizarSlider();
   });
 
-  window.addEventListener('resize', updateSlider);
-  window.addEventListener('load', updateSlider);
-  updateSlider();
+  window.addEventListener('resize', atualizarSlider);
+  window.addEventListener('load', atualizarSlider);
+  atualizarSlider();
 }
