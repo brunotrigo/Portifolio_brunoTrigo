@@ -7,7 +7,7 @@ const areaDoCarrossel = document.querySelector('.card-viewport');
 if (!trilho || !cards.length || !botaoAnterior || !botaoProximo || !areaDoCarrossel) {
   console.warn('Slider não encontrado. Verifique os seletores do HTML.');
 } else {
-  let indiceAtual = 0;
+  let indiceAtual = cards.length / 2; // Começa no meio do carrossel
   let arrastando = false;
   let posicaoInicialMouse = 0;
   let deslocamentoArraste = 0;
@@ -15,24 +15,21 @@ if (!trilho || !cards.length || !botaoAnterior || !botaoProximo || !areaDoCarros
   function quantidadeVisivel() {
     if (window.innerWidth <= 700) return 1;
     if (window.innerWidth <= 900) return 2;
-    return 3;
+    return 2;
   }
 
-  function maiorIndice() {
-    return Math.max(cards.length - quantidadeVisivel(), 0);
+  function ultimoIndice() {
+    return cards.length - 1;
   }
 
-  function indiceDoCardCentral() {
+  function indiceScroll() {
     const metade = Math.floor(quantidadeVisivel() / 2);
-    return Math.min(indiceAtual + metade, cards.length - 1);
+    return Math.min(Math.max(indiceAtual - metade, 0), cards.length - quantidadeVisivel());
   }
 
-  function atualizarEstadoDosCards() {
-    const indiceCentral = indiceDoCardCentral();
-
+  function destacarCard() {
     cards.forEach((card, index) => {
-      const cardEmDestaque = index === indiceCentral;
-      card.classList.toggle('is-active', cardEmDestaque);
+      card.classList.toggle('is-active', index === indiceAtual);
     });
   }
 
@@ -40,21 +37,25 @@ if (!trilho || !cards.length || !botaoAnterior || !botaoProximo || !areaDoCarros
     const espacamento = parseFloat(getComputedStyle(trilho).gap) || 20;
     const larguraCard = cards[0].getBoundingClientRect().width + espacamento;
 
-    indiceAtual = Math.min(Math.max(indiceAtual, 0), maiorIndice());
-    trilho.style.transform = `translateX(-${indiceAtual * larguraCard}px)`;
-    atualizarEstadoDosCards();
+    indiceAtual = Math.min(Math.max(indiceAtual, 0), ultimoIndice());
+    trilho.style.transform = `translateX(-${indiceScroll() * larguraCard}px)`;
+    destacarCard();
   }
 
   function finalizarArraste() {
     if (!arrastando) return;
 
     arrastando = false;
+    trilho.style.transition = '';
 
     if (deslocamentoArraste < -60) {
       indiceAtual += 1;
     } else if (deslocamentoArraste > 60) {
       indiceAtual -= 1;
     }
+
+    if (indiceAtual > ultimoIndice()) indiceAtual = 0;
+    if (indiceAtual < 0) indiceAtual = ultimoIndice();
 
     deslocamentoArraste = 0;
     atualizarSlider();
@@ -64,6 +65,8 @@ if (!trilho || !cards.length || !botaoAnterior || !botaoProximo || !areaDoCarros
     arrastando = true;
     posicaoInicialMouse = evento.clientX;
     deslocamentoArraste = 0;
+    trilho.style.transition = 'none';
+    areaDoCarrossel.setPointerCapture(evento.pointerId);
   });
 
   areaDoCarrossel.addEventListener('pointermove', (evento) => {
@@ -73,7 +76,7 @@ if (!trilho || !cards.length || !botaoAnterior || !botaoProximo || !areaDoCarros
     const larguraCard = cards[0].getBoundingClientRect().width + espacamento;
     deslocamentoArraste = evento.clientX - posicaoInicialMouse;
 
-    const deslocamentoTotal = -(indiceAtual * larguraCard) + deslocamentoArraste;
+    const deslocamentoTotal = -(indiceScroll() * larguraCard) + deslocamentoArraste;
     trilho.style.transform = `translateX(${deslocamentoTotal}px)`;
   });
 
@@ -82,7 +85,7 @@ if (!trilho || !cards.length || !botaoAnterior || !botaoProximo || !areaDoCarros
   areaDoCarrossel.addEventListener('pointercancel', finalizarArraste);
 
   botaoProximo.addEventListener('click', () => {
-    if (indiceAtual >= maiorIndice()) {
+    if (indiceAtual >= ultimoIndice()) {
       indiceAtual = 0;
     } else {
       indiceAtual += 1;
@@ -92,7 +95,7 @@ if (!trilho || !cards.length || !botaoAnterior || !botaoProximo || !areaDoCarros
 
   botaoAnterior.addEventListener('click', () => {
     if (indiceAtual <= 0) {
-      indiceAtual = maiorIndice();
+      indiceAtual = ultimoIndice();
     } else {
       indiceAtual -= 1;
     }
