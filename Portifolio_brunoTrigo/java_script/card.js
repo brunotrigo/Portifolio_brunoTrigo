@@ -1,47 +1,50 @@
-const track = document.querySelector('.card-track');
-const cards = Array.from(document.querySelectorAll('.card'));
-const prevButton = document.querySelector('.seta-esquerda');
-const nextButton = document.querySelector('.seta-direita');
+const trilho = document.querySelector('.card-track');
+const cards = document.querySelectorAll('.card');
+const botaoAnterior = document.querySelector('.seta-esquerda');
+const botaoProximo = document.querySelector('.seta-direita');
 
-if (!track || !cards.length || !prevButton || !nextButton) {
-  console.warn('Carrossel não encontrado. Verifique os seletores do HTML.');
+if (!trilho || !cards.length || !botaoAnterior || !botaoProximo) {
+  console.warn('Slider não encontrado. Verifique os seletores do HTML.');
 } else {
-  let currentIndex = 0;
+  let indiceAtual = 0;
 
-  function getVisibleCards() {
+  function quantidadeVisivel() {
     if (window.innerWidth <= 700) return 1;
     if (window.innerWidth <= 900) return 2;
     return 3;
   }
 
-  function getMaxIndex() {
-    return Math.max(cards.length - getVisibleCards(), 0);
+  function maiorIndice() {
+    return Math.max(cards.length - quantidadeVisivel(), 0);
   }
 
-  function updateSlider() {
-    const gap = parseFloat(getComputedStyle(track).gap) || 20;
-    const cardWidth = cards[0].getBoundingClientRect().width + gap;
+  function atualizarSlider() {
+    const espacamento = parseFloat(getComputedStyle(trilho).gap) || 20;
+    const larguraCard = cards[0].getBoundingClientRect().width + espacamento;
 
-    currentIndex = Math.min(currentIndex, getMaxIndex());
-    track.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+    indiceAtual = Math.min(indiceAtual, maiorIndice());
+    trilho.style.transform = `translateX(-${indiceAtual * larguraCard}px)`;
   }
 
-  function goToNext() {
-    const maxIndex = getMaxIndex();
-    currentIndex = currentIndex >= maxIndex ? 0 : currentIndex + 1;
-    updateSlider();
-  }
+  botaoProximo.addEventListener('click', () => {
+    if (indiceAtual >= maiorIndice()) {
+      indiceAtual = 0;
+    } else {
+      indiceAtual = indiceAtual + 1;
+    }
+    atualizarSlider();
+  });
 
-  function goToPrevious() {
-    const maxIndex = getMaxIndex();
-    currentIndex = currentIndex <= 0 ? maxIndex : currentIndex - 1;
-    updateSlider();
-  }
+  botaoAnterior.addEventListener('click', () => {
+    if (indiceAtual <= 0){
+      indiceAtual = maiorIndice();
+    }else{
+      indiceAtual = indiceAtual - 1;
+    }
+    atualizarSlider();
+  });
 
-  nextButton.addEventListener('click', goToNext);
-  prevButton.addEventListener('click', goToPrevious);
-  window.addEventListener('resize', updateSlider);
-  window.addEventListener('load', updateSlider);
-
-  updateSlider();
+  window.addEventListener('resize', atualizarSlider);
+  window.addEventListener('load', atualizarSlider);
+  atualizarSlider();
 }
