@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="css/flipcard.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Lato:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header class="cabecalho">
@@ -23,9 +23,9 @@
         </button>
         <nav class="menu" id="menu-principal" aria-label="Menu principal">
             <a href="#inicio">Home</a>
-            <a href="#conteudo">Conteudo</a>
+            <a href="#conteudo">Conteúdo</a>
             <a href="#feedback">Feedback</a>
-            <a href="#login">Login</a>
+            <a href="../Portifolio_brunoTrigo/html/cadastro.html">Login</a>
         </nav>
     </header>
 
@@ -37,7 +37,7 @@
                 <h1>silva <span class="nome-ouro">trigo</span></h1>
             </div>
             
-            <p class="descricao-hero">Analise e Desenvolvimento de sitema ( HTML, CSS, JavaScript e Python) </p>
+            <p class="descricao-hero">Análise e Desenvolvimento de Sistemas (HTML, CSS, JavaScript e Python)</p>
 
             <div class="icones_languagem">
                 <ul>
@@ -61,7 +61,7 @@
                     </li>
                     <li>
                         <span>
-                            <img class="icone" src="img/python.png" alt="JavaScript">
+                            <img class="icone" src="img/python.png" alt="Python">
                             <h5 >Python</h5>
                         </span>
                     </li>
@@ -69,12 +69,13 @@
             </div>
         </div>
 
-        <section class="habilidades" aria-label="Habilidades principais">
+        <section class="habilidades" id="conteudo" aria-label="Habilidades principais">
             <button class="seta seta-anterior" aria-label="anterior">←</button>
             <div class="area-cartoes">
                 <div class="trilho-cartoes">
 
-                    <article class="cartao" tabindex="0" role="button" aria-pressed="false">
+                    <article class="cartao">
+                    <button class="flip-button" type="button" aria-label="Virar cartão" title="Virar cartão" aria-pressed="false"><img src="img/flip-retro-transparente.png" alt=""></button>
                     <div class="conteudo-cartao">
                         <div class="frente-cartao">
                             <img src="img/js.png" alt="JavaScript">
@@ -88,7 +89,8 @@
                     </div>
                     </article>
 
-                    <article class="cartao" tabindex="0" role="button" aria-pressed="false">
+                    <article class="cartao">
+                    <button class="flip-button" type="button" aria-label="Virar cartão" title="Virar cartão" aria-pressed="false"><img src="img/flip-retro-transparente.png" alt=""></button>
                     <div class="conteudo-cartao">
                         <div class="frente-cartao">
                             <img src="img/html5.png" alt="HTML">
@@ -102,7 +104,8 @@
                     </div>
                     </article>
 
-                    <article class="cartao" tabindex="0" role="button" aria-pressed="false">
+                    <article class="cartao">
+                    <button class="flip-button" type="button" aria-label="Virar cartão" title="Virar cartão" aria-pressed="false"><img src="img/flip-retro-transparente.png" alt=""></button>
                     <div class="conteudo-cartao">
                         <div class="frente-cartao">
                             <img src="img/css3.png" alt="CSS3">
@@ -116,33 +119,8 @@
                     </div>
                     </article>
 
-                    <article class="cartao" tabindex="0" role="button" aria-pressed="false">
-                    <div class="conteudo-cartao">
-                        <div class="frente-cartao">
-                            <img src="img/python.png" alt="Python">
-                            <h3>Programação Python</h3>
-                            <p>Linguagem versátil usada para lógica de programação, automações, dados e desenvolvimento.</p>
-                        </div>
-                        <div class="verso-cartao">
-                            <h3>Python na prática</h3>
-                            <p>Ajuda a criar programas, automações, APIs e soluções para trabalhar com dados.</p>
-                        </div>
-                    </div>
-                    </article>
-                    <article class="cartao" tabindex="0" role="button" aria-pressed="false">
-                    <div class="conteudo-cartao">
-                        <div class="frente-cartao">
-                            <img src="img/python.png" alt="Python">
-                            <h3>Programação Python</h3>
-                            <p>Linguagem versátil usada para lógica de programação, automações, dados e desenvolvimento.</p>
-                        </div>
-                        <div class="verso-cartao">
-                            <h3>Python na prática</h3>
-                            <p>Ajuda a criar programas, automações, APIs e soluções para trabalhar com dados.</p>
-                        </div>
-                    </div>
-                    </article>
-                    <article class="cartao" tabindex="0" role="button" aria-pressed="false">
+                    <article class="cartao">
+                    <button class="flip-button" type="button" aria-label="Virar cartão" title="Virar cartão" aria-pressed="false"><img src="img/flip-retro-transparente.png" alt=""></button>
                     <div class="conteudo-cartao">
                         <div class="frente-cartao">
                             <img src="img/python.png" alt="Python">
@@ -166,7 +144,7 @@
                 
         </section>
     </main>
-    <footer>© 2026 Portifólio aluno de de ADS  · Projeto pessoal/academico de ADS</footer>
+    <footer>© 2026 Portfólio aluno de ADS · Projeto pessoal/acadêmico de ADS</footer>
 
     <script src="java_script/card.js"></script>
     <script src="java_script/FlipCard.js"></script>

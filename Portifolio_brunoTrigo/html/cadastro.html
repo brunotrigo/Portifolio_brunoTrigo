@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bruno trigo</title>
+    <link rel="stylesheet" href="../css/estilo.css">
+    <link rel="stylesheet" href="../css/cadastro.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="cabecalho">
+        <div class="logo">
+            <img src="../img/logo_cabecalho.png" alt="Logo Bruno Trigo">
+        </div>
+        <button class="botao-menu" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-principal">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav class="menu" id="menu-principal" aria-label="Menu principal">
+            <a href="../index.html">Home</a>
+            <a href="#conteudo">Conteúdo</a>
+            <a href="#feedback">Feedback</a>
+            <a href="#login">Login</a>
+        </nav>
+    </header>
+    <main class="container">
+        <span class="etiqueta-secao">Área do cliente</span>
+        <h1>Entrar</h1>
+        <p class="suave">Acesse suas preferências e seu painel.</p>
+
+        <form class="formulario" id="form-login" novalidate>
+            <div class="campo">
+                <label for="login">Login</label>
+                <input type="text" id="login" autocomplete="username" required />
+            </div>
+
+            <div class="campo">
+                <label for="senha">Senha</label>
+                <input type="password" id="senha" autocomplete="current-password" required />
+            </div>
+      
+            <p class="erro" id="erro-login"></p>
+            <button class="botao botao--bloco botao--grande" type="submit">Entrar</button>
+        </form>
+  </main>
+
+    
+    
+    <footer>© 2026 Portfólio aluno de ADS · Projeto pessoal/acadêmico de ADS</footer>
+
+    <script src="java_script/card.js"></script>
+    <script src="java_script/FlipCard.js"></script>
+    <script src="java_script/menu.js"></script>
+</body>
+</html>

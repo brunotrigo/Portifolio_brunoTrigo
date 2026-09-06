@@ -1,19 +1,13 @@
-const cartoes = document.querySelectorAll('.cartao');
+const botoesFlip = document.querySelectorAll('.flip-button');
 
-function virarCartao(cartao) {
+function virarCartao(botao) {
+	const cartao = botao.closest('.cartao');
 	const estaVirado = cartao.classList.toggle('virado');  //cria uma variável booleana que indica se o cartão está virado ou não
-	cartao.setAttribute('aria-pressed', estaVirado); //atualiza o atributo aria-pressed para refletir o estado do cartão
+	botao.setAttribute('aria-pressed', estaVirado); //atualiza o estado do botão
 }
 
-cartoes.forEach((cartao) => {
-	cartao.addEventListener('click', () => {
-		virarCartao(cartao);
-	});
-
-	cartao.addEventListener('keydown', (evento) => {
-		if (evento.key === 'Enter' || evento.key === ' ') {
-			evento.preventDefault();
-			virarCartao(cartao);
-		}
+botoesFlip.forEach((botao) => {
+	botao.addEventListener('click', () => {
+		virarCartao(botao);
 	});
 });
