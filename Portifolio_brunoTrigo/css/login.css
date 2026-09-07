@@ -125,7 +125,7 @@
 
 .campo input:focus {
   outline: none;
-  background: rgba(4, 10, 18, 0.95);
+  background: #040a12f2;
   border-color: var(--ouro-claro);
   box-shadow: 0 0 14px rgba(230, 173, 40, 0.35);
 }
@@ -141,12 +141,12 @@
 
 /* Botão de envio */
 .formulario .botao {
-  width: 100%;
+  width: 80%;
   padding: 13px 24px;
-  margin-top: 6px;
-  background: rgba(230, 173, 40, 0.12);
-  border: 1px solid rgba(230, 173, 40, 0.85);
-  border-radius: 26px;
+  margin: 6px auto;
+  background: rgba(230, 173, 40, 0.121);
+  border: 1px solid rgba(230, 173, 40, 0.715);
+  border-radius: 0px 16px 0px 16px;
   color: var(--ouro-claro);
   font-family: "Cinzel Decorative", Georgia, serif;
   font-size: 0.85rem;
@@ -157,11 +157,29 @@
   transition: all 0.3s ease;
   box-shadow: 0 0 12px rgba(230, 173, 40, 0.15);
 }
+.formulario .botao-cadastro {
+  width: 50%;
+  padding: 13px 24px;
+  margin-top: 6px;
+  background: #040a12f2;
+  border: 1px solid rgb(203, 153, 37);
+  border-radius: 0px 16px 0px 16px;
+  color: white;
+  font-family: "Cinzel Decorative", Georgia, serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 12px rgba(230, 173, 40, 0.15);
+}
+
 
 .formulario .botao:hover {
   background: var(--ouro);
   color: var(--preto);
-  box-shadow: 0 0 20px rgba(230, 173, 40, 0.6);
+  box-shadow: 0 0 20px rgba(230, 173, 40, 0.249);
   transform: translateY(-2px);
 }
 

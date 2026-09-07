@@ -41,8 +41,8 @@
   padding: 8px;
   overflow: hidden;
   background:
-    linear-gradient(145deg, rgba(5, 13, 20, 0.97), rgba(4, 13, 30, 0.94)) padding-box,
-    linear-gradient(135deg, #402307a9 0%, #e08b24 50%, #2313047f 100%) border-box;
+    linear-gradient(145deg, rgba(5, 13, 20, 0.768), rgba(4, 13, 30, 0.834)) padding-box,
+    linear-gradient(135deg, #bb6514 0%, #e08b2400 50%, #8f4d10f6 100%) border-box;
   border: 2px solid transparent;
   border-radius:50px 0px 50px 00px;
   filter: brightness(0.72) saturate(0.65);
@@ -99,8 +99,10 @@
   width: 36px;
   height: 36px;
   border: 1px solid rgba(230, 173, 40, 0.5);
-  border-radius: 0;
-  background: rgba(230, 173, 40, 0.08);
+  border-radius: 10px 0px 10px 0px;
+  background:
+    linear-gradient(145deg, rgba(5, 13, 20, 0.97), rgba(4, 13, 30, 0.94)) padding-box,
+    linear-gradient(135deg, #402307a9 0%, #e08b24 50%, #2313047f 100%) border-box;
   color: #f2c94c;
   font-size: 1.3rem;
   line-height: 1.5;
