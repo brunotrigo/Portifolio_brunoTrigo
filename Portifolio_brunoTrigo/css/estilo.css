@@ -1,7 +1,18 @@
+/* =========================================================
+   ESTILOS GERAIS - TEMA ESPACIAL EM PRETO E DOURADO
+   ========================================================= */
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+:root {
+  --preto: #020508;
+  --ouro: #e6ad28;
+  --ouro-claro: #ffd85a;
+  --texto-suave: #9da6ae;
 }
 
 html {
@@ -11,224 +22,102 @@ html {
 body {
   width: 100%;
   min-width: 320px;
-  height: 100vh;
+  min-height: 100vh;
   line-height: 1.6;
   text-align: center;
+  font-family: "Lato", Arial, sans-serif;
+  color: #e8ebee;
+  background: var(--preto);
+}
+
+/* =========================================================
+   VÍDEO DE FUNDO (NEBULOSA)
+   ========================================================= */
+.video-fundo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: 0;
+  pointer-events: none;
+  filter: brightness(0.85);
+}
+
+.mascara-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(circle at 50% 35%, rgba(2, 5, 8, 0.45) 0%, rgba(2, 5, 8, 0.82) 100%);
+  z-index: 1;
+  pointer-events: none;
 }
 
 main {
+  position: relative;
+  z-index: 2;
   min-height: 100vh;
-  padding-top: 1px;
+  padding-top: 90px; /* Espaço para o cabeçalho transparente não cobrir o início do conteúdo */
+  overflow: hidden;
+  background: transparent;
 }
 
-/* HEADER */
+/* =========================================================
+   CABEÇALHO & MENU
+   ========================================================= */
 .cabecalho {
-  position: sticky;
-  top: 0;
-  padding: 0px 50px;
+  /* ==============================================================
+     OPÇÃO 1 (ATUAL): 'fixed'    -> NÃO ROLA (fica fixo no topo da tela)
+     OPÇÃO 2:         'absolute' -> ROLA JUNTO (sobe e some ao descer)
+     ============================================================== */
+  position: absolute; /* Rola junto com a página (não fica preso no topo) */
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(90%, 1100px);
+  min-height: 64px;
+  padding: 0 30px;
   display: flex;
   justify-content: space-between;
-  z-index: 10;
+  align-items: center;
+  background: rgba(2, 5, 8, 0.65);
+  border: 1px solid rgba(230, 173, 40, 0.35);
+  border-radius: 40px;
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  z-index: 100;
 }
 
 .logo img {
+  width: 108px;
   height: auto;
   display: block;
+  filter: drop-shadow(0 0 8px rgba(230, 173, 40, 0.282));
 }
 
 .menu {
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: clamp(8px, 2.4vw, 38px);
 }
-
-.menu a {
-  font-family: "Cinzel Decorative", serif;
-  text-decoration: none;
-  font-weight: bolder;
-  transition: 0.3s ease;
-}
-
-.menu a:hover {
-  color: #facc15;
-  background: rgba(255, 255, 255, 0.04);
-  transform: translateY(-4px);
-
-}
-
-.botao-menu {
-  display: none;
-  width: 42px;
-  height: 42px;
-  padding: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 8px;
-  background: transparent;
-  cursor: pointer;
-}
-
-.botao-menu span {
-  display: block;
-  width: 24px;
-  height: 3px;
-  margin: 4px auto;
-  border-radius: 2px;
-  background: #facc15;
-  transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-.botao-menu.aberto span:nth-child(1) {
-  transform: translateY(7px) rotate(45deg);
-}
-
-.botao-menu.aberto span:nth-child(2) {
-  opacity: 0;
-}
-
-.botao-menu.aberto span:nth-child(3) {
-  transform: translateY(-7px) rotate(-45deg);
-}
-
-/* HERO */
-.hero-inicial {
-  position: relative;
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.nome-principal {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0;
-  padding-left: 20px;
-}
-
-.nome-principal h1 {
-  font-size: clamp(2.4rem, 4vw, 3.8rem);
-  margin: 0;
-  line-height: 0.8;
-  text-align: left;
-}
-
-.hero-inicial p {
-  text-align: left;
-  font-weight: bold;
-}
-
-.icones_languagem ul {
-  list-style: none;
-  display: flex;
-}
-
-.icones_languagem img {
-  width: 40px;
-  height: 40px;
-  object-fit: contain;
-  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.15));
-  transition: opacity 0.3s ease, transform 0.5s ease;
-}
-.icones_languagem h5 {
-  transition: opacity 0.2s ease, text-shadow 0.2s ease;
-}
-
-.icones_languagem li span:hover img {
-  transform: translateY(-20px) scale(1.4);
-}
-
-.icones_languagem li span:hover h5 {
-  opacity: 1;
-  color: #facc15;
-  text-shadow: 0 3px 5px #b2910e;
-}
-
-
-
-
-/* FOOTER */
-footer {
-  text-align: center;
-}
-
-@media (max-width: 700px) {
-  .cabecalho {
-    align-items: center;
-  }
-
-  .botao-menu {
-    display: block;
-  }
-
-  .menu {
-    position: absolute;
-    top: 100%;
-    right: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    padding: 0 20px;
-    overflow: hidden;
-    background: rgba(15, 17, 23, 0.97);
-    max-height: 0;
-    transition: max-height 0.5s ease, padding 0.5s ease;
-  }
-
-  .menu.aberto {
-    max-height: 280px;
-    padding: 10px 20px;
-  }
-
-  .menu a {
-    width: 100%;
-  }
-}
-
-/* Tema espacial em preto e dourado */
-:root {
-  --preto: #020508;
-  --ouro: #e6ad28;
-  --ouro-claro: #ffd85a;
-  --texto-suave: #9da6ae;
-}
-
-body {
-  min-height: 100vh;
-  font-family: "Lato", Arial, sans-serif;
-  color: #e8ebee;
-  background: var(--preto);
-}
-
-main {
-  overflow: hidden;
-  background: radial-gradient(circle at 50% 30%, rgba(40, 45, 48, 0.16), transparent 38%), #020508;
-}
-
-.cabecalho {
-  min-height: 78px;
-  padding: 0 4.5%;
-  align-items: center;
-  background: rgba(2, 5, 8, 0.87);
-  border-bottom: 1px solid rgba(230, 173, 40, 0.28);
-  -webkit-backdrop-filter: blur(14px);
-  backdrop-filter: blur(14px);
-}
-
-.logo img {
-  width: 108px;
-  filter: drop-shadow(0 0 8px rgba(230, 173, 40, 0.3));
-}
-
-.menu { gap: clamp(8px, 2.4vw, 38px); }
 
 .menu a {
   position: relative;
   padding: 29px 4px 25px;
   border-radius: 0;
   color: #cdd1d4;
+  font-family: "Cinzel Decorative", serif;
   font-size: 0.68rem;
+  font-weight: bolder;
   letter-spacing: 0.14em;
+  text-decoration: none;
   text-transform: uppercase;
+  transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .menu a::after {
@@ -245,30 +134,82 @@ main {
 }
 
 .menu a:hover,
-.menu a:first-child { color: var(--ouro-claro); }
+.menu a:first-child {
+  color: var(--ouro-claro);
+}
+
 .menu a:hover::after,
-.menu a:first-child::after { transform: scaleX(1); }
-.menu a[href="#login"] {
+.menu a:first-child::after {
+  transform: scaleX(1);
+}
+
+.menu a[href="#login"],
+.menu a[href*="login"] {
   margin-left: clamp(12px, 2.4vw, 38px);
   padding: 9px 28px;
   border: 1px solid rgba(230, 173, 40, 0.9);
   border-radius: 24px;
   color: var(--ouro-claro);
 }
-.menu a[href="#login"]::after { display: none; }
 
-.botao-menu { border-color: rgba(230, 173, 40, 0.5); border-radius: 0; }
-.botao-menu span { height: 2px; background: var(--ouro-claro); }
+.menu a[href="#login"]::after,
+.menu a[href*="login"]::after {
+  display: none;
+}
 
+.botao-menu {
+  display: none;
+  width: 42px;
+  height: 42px;
+  padding: 8px;
+  border: 1px solid rgba(230, 173, 40, 0.5);
+  border-radius: 8px;
+  background: transparent;
+  cursor: pointer;
+}
+
+.botao-menu span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  margin: 4px auto;
+  border-radius: 2px;
+  background: var(--ouro-claro);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.botao-menu.aberto span:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.botao-menu.aberto span:nth-child(2) {
+  opacity: 0;
+}
+
+.botao-menu.aberto span:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+/* =========================================================
+   HERO / APRESENTAÇÃO
+   ========================================================= */
 .hero-inicial {
-  width: 100%;
-  min-height: 570px;
-  margin: 0;
-  padding: clamp(58px, 8vh, 84px) 8% 82px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: min(90%, 1100px);
+  min-height: 550px;
+  margin: 40px auto 20px;
+  padding: clamp(20px, 3vh, 75px) 6% 70px;
   background:
-    linear-gradient(90deg, rgba(2, 5, 8, 0.96) 0%, rgba(2, 5, 8, 0.72) 35%, rgba(2, 5, 8, 0.08) 75%),
-    linear-gradient(0deg, rgba(2, 5, 8, 0.94) 0%, transparent 43%),
+    linear-gradient(90deg, rgba(2, 5, 8, 0.685) 0%, rgba(2, 5, 8, 0.499) 35%, rgba(2, 5, 8, 0) 75%),
+    linear-gradient(0deg, rgb(2, 5, 8) 0%, transparent 43%),
     url('../img/download.jpg') 68% center / cover no-repeat;
+  border: 1px solid rgba(230, 173, 40, 0.25);
+  border-radius: 28px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.5), 0 0 24px rgba(230, 173, 40, 0.06);
 }
 
 .hero-inicial::after {
@@ -276,55 +217,62 @@ main {
   right: 5%;
   bottom: 22px;
   left: 5%;
-  height: 1px;
+  height: 2px;
   content: "";
   background: linear-gradient(90deg, transparent, rgba(230, 173, 40, 0.48), transparent);
-}
-
-.nome-principal {
-  width: min(600px, 100%);
-  font-family: Georgia, "Times New Roman", serif;
-  text-transform: uppercase;
 }
 
 .hero-inicial > .saudacao {
   margin: 0 0 5px;
   padding: 0;
-  color: #d9dde0;
+  color: #edf0f0;
   font-family: "Cinzel Decorative", Georgia, serif;
-  font-size: 0.7rem;
+  font-size: 0.9rem;
   letter-spacing: 0.16em;
-  text-align: left;
+  text-align: center;
+}
+
+.nome-principal {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  padding-left: 0;
+  width: min(600px, 100%);
+  font-family: Georgia, "Times New Roman", serif;
+  text-transform: uppercase;
 }
 
 .nome-principal::before {
-  width: 30px;
-  height: 2px;
-  margin-bottom: 14px;
   content: "";
+  display: block;
+  width: 220px;
+  height: 2px;
+  margin: 14px;
   background: var(--ouro);
   box-shadow: 0 0 9px var(--ouro);
 }
 
 .nome-principal h1 {
-  font-size: clamp(2.1rem, 4.8vw, 4rem);
+  font-size: clamp(2.4rem, 4vw, 3.8rem);
+  margin: 0;
   line-height: 0.92;
   letter-spacing: 0.02em;
+  text-align: center;
   text-shadow: 0 2px 18px rgba(0, 0, 0, 0.9);
 }
 
 .nome-principal h1 .nome-ouro {
   padding-left: 0;
-}
-
-.hero-inicial .nome-ouro {
   color: var(--ouro-claro);
-  font-size: clamp(2.2rem, 5.2vw, 4.3rem);
   text-shadow: 0 0 18px rgba(230, 173, 40, 0.45);
 }
 
 .hero-inicial > p {
-  max-width: 520px;
+  text-align: center;
+  font-weight: bold;
+  max-width: 560px;
   padding: 13px 0 11px;
   color: #d9dde0;
   font-size: clamp(0.82rem, 1.25vw, 1rem);
@@ -337,9 +285,20 @@ main {
   font-size: clamp(0.85rem, 1.3vw, 1rem);
   line-height: 1.5;
   letter-spacing: 0.03em;
+  text-align: center;
 }
 
-.icones_languagem ul { gap: 12px; padding-left: 0; }
+/* =========================================================
+   ÍCONES DE LINGUAGENS
+   ========================================================= */
+.icones_languagem ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  padding-left: 0;
+}
+
 .icones_languagem li span {
   display: flex;
   width: 72px;
@@ -349,36 +308,122 @@ main {
   justify-content: center;
   border: 1px solid rgba(230, 173, 40, 0.22);
   background: rgba(0, 5, 9, 0.55);
+  transition: border-color 0.3s ease;
 }
+
+.icones_languagem img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.15));
+  transition: opacity 0.3s ease, transform 0.4s ease;
+}
+
 .icones_languagem h5 {
   margin-top: 7px;
-  opacity: 1;
-  transform: none;
   color: var(--texto-suave);
   font-size: 0.62rem;
   letter-spacing: 0.08em;
+  transition: color 0.2s ease, text-shadow 0.2s ease;
 }
-.icones_languagem img { width: 28px; height: 28px; }
 
+.icones_languagem li span:hover {
+  border-color: rgba(230, 173, 40, 0.6);
+}
+
+.icones_languagem li span:hover img {
+  transform: translateY(-6px) scale(1.15);
+}
+
+.icones_languagem li span:hover h5 {
+  color: #facc15;
+  text-shadow: 0 0 8px rgba(230, 173, 40, 0.6);
+}
+
+/* =========================================================
+   RODAPÉ
+   ========================================================= */
 footer {
+  position: relative;
+  z-index: 2;
+  text-align: center;
   padding: 22px 5%;
   color: var(--ouro);
   border-top: 1px solid rgba(230, 173, 40, 0.2);
-  background: #020508;
+  background: rgba(2, 5, 8, 0.88);
   font-size: 0.72rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
+/* =========================================================
+   RESPONSIVIDADE (MOBILE)
+   ========================================================= */
 @media (max-width: 700px) {
-  .cabecalho { min-height: 68px; padding: 0 20px; }
-  .logo img { width: 82px; }
-  .menu { width: 100%; gap: 0; background: rgba(2, 5, 8, 0.98); }
-  .menu a { width: 100%; padding: 15px; text-align: center; }
-  .menu a::after { bottom: 8px; }
-  .hero-inicial { min-height: 600px; padding: 75px 8% 80px; background-position: 68% center; }
-  .nome-principal h1,
-  .hero-inicial .nome-ouro { font-size: clamp(2.35rem, 12vw, 4rem); }
-  .hero-inicial > p { letter-spacing: 0.03em; }
-}
+  .cabecalho {
+    min-height: 68px;
+    padding: 0 20px;
+    align-items: center;
+  }
 
+  .logo img {
+    width: 82px;
+  }
+
+  .botao-menu {
+    display: block;
+  }
+
+  .menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    padding: 0 20px;
+    overflow: hidden;
+    background: rgba(2, 5, 8, 0.98);
+    max-height: 0;
+    transition: max-height 0.5s ease, padding 0.5s ease;
+  }
+
+  .menu.aberto {
+    max-height: 280px;
+    padding: 10px 20px;
+  }
+
+  .menu a {
+    width: 100%;
+    padding: 15px;
+    text-align: center;
+  }
+
+  .menu a::after {
+    bottom: 8px;
+  }
+
+  .menu a[href="#login"],
+  .menu a[href*="login"] {
+    margin: 8px auto;
+    width: auto;
+  }
+
+  .hero-inicial {
+    width: 94%;
+    margin: 20px auto 10px;
+    min-height: 540px;
+    padding: 60px 5% 65px;
+    border-radius: 20px;
+    background-position: 68% center;
+  }
+
+  .nome-principal h1 {
+    font-size: clamp(2.35rem, 12vw, 4rem);
+  }
+
+  .hero-inicial > p {
+    letter-spacing: 0.03em;
+  }
+}

@@ -1,0 +1,184 @@
+/* =========================================================
+   PÁGINA DE LOGIN - TEMA PRETO E DOURADO
+   ========================================================= */
+
+:root {
+  --preto: #020508;
+  --preto-card: rgba(5, 13, 20, 0.95);
+  --ouro: #e6ad28;
+  --ouro-claro: #ffd85a;
+  --texto-suave: #9da6ae;
+  --texto-claro: #e8ebee;
+}
+
+/* Container centralizado */
+.container {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 78px - 65px);
+  padding: 120px 20px 60px;
+  background: transparent;
+}
+
+/* Cartão do formulário */
+.card-login {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  margin: 50px auto;
+  padding: 40px 36px;
+  background:
+    linear-gradient(145deg, rgba(5, 13, 20, 0.97), rgba(4, 13, 30, 0.94)) padding-box,
+    linear-gradient(135deg, #402307a9 0%, #e08b24 50%, #2313047f 100%) border-box;
+  border: 2px solid transparent;
+  border-radius: 40px 0px 40px 0px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7), 0 0 24px rgba(230, 173, 40, 0.12);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Linha decorativa no topo */
+.card-login::before {
+  content: "";
+  display: block;
+  width: 32px;
+  height: 2px;
+  background: var(--ouro);
+  box-shadow: 0 0 9px var(--ouro);
+  margin-bottom: 14px;
+}
+
+.etiqueta-secao {
+  font-family: "Cinzel Decorative", Georgia, serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ouro);
+  margin-bottom: 6px;
+}
+
+.titulo-login {
+  font-family: "Cinzel Decorative", Georgia, serif;
+  font-size: clamp(1.8rem, 3vw, 2.3rem);
+  font-weight: 700;
+  color: var(--ouro-claro);
+  text-shadow: 0 0 16px rgba(230, 173, 40, 0.45);
+  margin-bottom: 8px;
+  letter-spacing: 0.05em;
+}
+
+.suave {
+  color: var(--texto-suave);
+  font-size: 0.88rem;
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+  margin-bottom: 28px;
+}
+
+/* Formulário e campos */
+.formulario {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  text-align: left;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  width: 100%;
+}
+
+.campo label {
+  font-family: "Cinzel Decorative", Georgia, serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #cdd1d4;
+  font-weight: 600;
+}
+
+.campo input {
+  width: 100%;
+  padding: 13px 16px;
+  background: rgba(2, 5, 8, 0.85);
+  border: 1px solid rgba(230, 173, 40, 0.3);
+  border-radius: 10px;
+  color: var(--texto-claro);
+  font-family: "Lato", Arial, sans-serif;
+  font-size: 0.95rem;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+
+.campo input::placeholder {
+  color: #626d78;
+  font-size: 0.85rem;
+}
+
+.campo input:focus {
+  outline: none;
+  background: rgba(4, 10, 18, 0.95);
+  border-color: var(--ouro-claro);
+  box-shadow: 0 0 14px rgba(230, 173, 40, 0.35);
+}
+
+/* Mensagem de erro */
+.erro {
+  font-size: 0.84rem;
+  color: #ff6b6b;
+  min-height: 20px;
+  text-align: center;
+  margin: -6px 0;
+}
+
+/* Botão de envio */
+.formulario .botao {
+  width: 100%;
+  padding: 13px 24px;
+  margin-top: 6px;
+  background: rgba(230, 173, 40, 0.12);
+  border: 1px solid rgba(230, 173, 40, 0.85);
+  border-radius: 26px;
+  color: var(--ouro-claro);
+  font-family: "Cinzel Decorative", Georgia, serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 12px rgba(230, 173, 40, 0.15);
+}
+
+.formulario .botao:hover {
+  background: var(--ouro);
+  color: var(--preto);
+  box-shadow: 0 0 20px rgba(230, 173, 40, 0.6);
+  transform: translateY(-2px);
+}
+
+.formulario .botao:active {
+  transform: translateY(0);
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+  .container {
+    padding: 30px 16px;
+    min-height: calc(100vh - 68px - 65px);
+  }
+
+  .card-login {
+    padding: 30px 20px;
+    border-radius: 30px 0 30px 0;
+  }
+}
+
