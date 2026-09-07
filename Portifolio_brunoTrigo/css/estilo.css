@@ -51,7 +51,7 @@ body {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: radial-gradient(circle at 50% 35%, rgba(2, 5, 8, 0.45) 0%, rgba(2, 5, 8, 0.82) 100%);
+  background: radial-gradient(circle at 50% 35%, rgba(2, 5, 8, 0.147) 0%, rgba(2, 5, 8, 0.344) 100%);
   z-index: 1;
   pointer-events: none;
 }
