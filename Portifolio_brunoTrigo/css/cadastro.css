@@ -1,3 +1,60 @@
-/* Arquivo renomeado para login.css - importando para compatibilidade */
 @import url("login.css");
+
+.card-cadastro {
+	max-width: 780px;
+    max-height: 100vh;
+}
+
+.card-cadastro .formulario {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	align-items: flex-end;
+	column-gap: 16px;
+	row-gap: 16px;
+}
+
+.card-cadastro .formulario .campo {
+	box-sizing: border-box;
+	flex: 1 1 280px;
+	min-width: min(100%, 280px);
+}
+
+.card-cadastro .erro,
+.card-cadastro .sucesso,
+.acoes-cadastro {
+	width: 100%;
+}
+
+.acoes-cadastro {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 10px;
+	margin-top: 8px;
+}
+
+.acoes-cadastro .botao {
+	margin: 0;
+}
+
+.sucesso {
+	min-height: 20px;
+	margin: -4px 0;
+	color: #8ee6a8;
+	font-size: 0.84rem;
+	text-align: center;
+}
+
+.link-login {
+	align-self: center;
+	color: var(--ouro-claro);
+	font-size: 0.8rem;
+	text-decoration: none;
+}
+
+.link-login:hover,
+.link-login:focus-visible {
+	text-decoration: underline;
+}
 

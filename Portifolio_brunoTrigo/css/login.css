@@ -141,6 +141,7 @@
 
 /* Botão de envio */
 .formulario .botao {
+  display: block;
   width: 80%;
   padding: 13px 24px;
   margin: 6px auto;
@@ -156,6 +157,8 @@
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 0 12px rgba(230, 173, 40, 0.15);
+  text-align: center;
+  text-decoration: none;
 }
 .formulario .botao-cadastro {
   width: 50%;
