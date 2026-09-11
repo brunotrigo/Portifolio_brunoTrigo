@@ -1,3 +1,80 @@
-/* Arquivo renomeado para login.css - importando para compatibilidade */
+/* Arquivo renomeado par8a login.css - importando para compatibilidade */
 @import url("login.css");
+
+main{
+  height: 200vh;
+}
+.card-cadastro{
+  max-width: 70%;
+  min-height: 700px;
+  padding: 40px 0px;
+  background:
+    linear-gradient(145deg, rgba(5, 23, 39, 0.771), rgba(1, 12, 36, 0.842)) padding-box,
+    linear-gradient(135deg, #bb6514 0%, #a8681b2a 40%, #8f4d10 100%) border-box;
+  border: 2px solid transparent;
+  border-radius: 40px 0px 40px 0px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7), 0 0 24px rgba(230, 173, 40, 0.12);
+  
+}
+.card-cadastro::after{
+  margin: 10px auto;
+  width: 60%;
+  position: absolute;
+  right: 5%;
+  left: 5%;
+  height: 3px;
+  content: "";
+  background: linear-gradient(90deg, transparent, rgba(230, 173, 40, 0.48), transparent);
+  
+}
+.formulario-cadastro{
+    min-width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items:flex-start;
+    text-align: center;
+    gap: 20px;
+    padding: 20px;
+    margin:0px;
+    
+    
+}
+.campo{
+    width: calc(50% - 10px);
+   
+}
+.campo label{
+  font-size: 0.6rem;
+}
+
+.campo input{
+  padding: 15px;
+}
+.campo-botao{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;  
+  
+}
+.campo-botao .botao{
+  padding: 10px;
+  width: 300px;
+  font-family: cinzel decorative, Verdana, Geneva, Tahoma, sans-serif;
+  border-radius: 15px 15px 15px 0px;
+  border: 1px solid #e6ad28b6;
+  color: #e6ad28b6;
+  background: rgba(255, 255, 0, 0.093);
+}
+  
+.campo-botao .botao:hover{
+  color: black;
+  border: 1px solid #e6ad28b6;
+  box-shadow: 0px 10px 20px #e6ad28b6;
+  background: #e6ad28d5;
+}
+  
+
+
 

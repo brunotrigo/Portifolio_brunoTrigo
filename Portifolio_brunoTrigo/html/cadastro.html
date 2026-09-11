@@ -33,26 +33,46 @@
         </nav>
     </header>
     <main class="container">
-        <div class="card-login">
+        <div class="card-cadastro">
             <span class="etiqueta-secao">Área de cadastro</span>
             <h1 class="titulo-login">cadastrar</h1>
-            <p class="suave">Acesse sua conta se ja tem cadastro.</p>
+            <p class="suave">Faça seu cadastro para poder fazer login.</p>
 
-            <form class="formulario" id="form-login" novalidate>
-                <div class="campo">
-                    <label for="login">Login</label>
-                    <input type="text" id="login" autocomplete="username" placeholder="Digite seu usuário ou e-mail" required />
+            <form class=" formulario-cadastro" id="form-login" novalidate>
+                <div class="campo campo-cadastro linha-dupla">
+                    <label for="nome-completo">nome completo</label>
+                    <input type="text" id="nome-completo" autocomplete="username" placeholder="Digite seu nome com minimo de 15 letras" required />
                 </div>
 
-                <div class="campo">
+                <div class="campo campo-cadastro">
+                    <label for="ususario"> Nome de usuario</label>
+                    <input type="text" id="usuario" autocomplete="username" placeholder="Digite seu usuario" required />
+                </div>
+
+                <div class="campo campo-cadastro">
+                    <label for="email">Login</label>
+                    <input type="text" id="email" autocomplete="username" placeholder="Digite seu e-mail" required />
+                </div>
+
+                <div class="campo campo-cadastro">
                     <label for="senha">Senha</label>
-                    <input type="password" id="senha" autocomplete="current-password" placeholder="Digite sua senha" required />
+                    <input type="text" id="senha" autocomplete="username" placeholder="Digite sua senha minimo de 8 caracteres" required />
+                </div>
+
+                <div class="campo campo-cadastro">
+                    <label for="senha-confirma">confirmação da senha</label>
+                    <input type="password" id="senha-confirma" autocomplete="current-password" placeholder="Repita sua senha" required />
                 </div>
           
                 <p class="erro" id="erro-login"></p>
-                <button class="botao" type="submit">Entrar</button>
-                <button class="botao botao-cadastro" type="submit">cadastrar</button>
+                
             </form>
+
+            <div class="campo-botao">
+                <button class="botao botao-cadastro" type="submit">cadastrar</button>
+                <button class="botao" type="submit">Login</button>
+            </div>
+            
         </div>
     </main>
 

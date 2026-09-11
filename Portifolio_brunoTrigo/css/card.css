@@ -77,7 +77,7 @@
   z-index: 1;
   margin: 0 0 8px;
   color: #ead08a;
-  font-size: 0.88rem;
+  font-size: 0.68rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
@@ -89,7 +89,7 @@
   border-top: 1px solid rgba(230, 173, 40, 0.25);
   color: #aab1b6;
   font-family: "Lato", Arial, sans-serif;
-  font-size: 0.88rem;
+  font-size: 0.68rem;
   line-height: 1.5;
   letter-spacing: 0.01em;
   text-align: center;
@@ -104,7 +104,7 @@
     linear-gradient(145deg, rgba(5, 13, 20, 0.97), rgba(4, 13, 30, 0.94)) padding-box,
     linear-gradient(135deg, #402307a9 0%, #e08b24 50%, #2313047f 100%) border-box;
   color: #f2c94c;
-  font-size: 1.3rem;
+  font-size: 0.8rem;
   line-height: 1.5;
   cursor: pointer;
   transition: transform 0.1s ease, background 0.1s ease, box-shadow 0.2s ease;
