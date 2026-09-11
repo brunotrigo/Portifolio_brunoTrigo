@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bruno trigo</title>
+    <link rel="stylesheet" href="Portifolio_brunoTrigo/css/estilo.css">
+    <link rel="stylesheet" href="Portifolio_brunoTrigo/css/card.css">
+    <link rel="stylesheet" href="Portifolio_brunoTrigo/css/flipcard.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <video class="video-fundo" src="Portifolio_brunoTrigo/img/video/nebulosa.mp4" autoplay loop muted playsinline>
+        <source src="Portifolio_brunoTrigo/img/video/nebulosa.mp4" type="video/mp4">
+    </video>
+    
+    <div class="mascara-video"></div>
+
+    <header class="cabecalho">
+        <div class="logo">
+            <img src="Portifolio_brunoTrigo/img/logo_cabecalho.png" alt="Logo Bruno Trigo">
+        </div>
+        <button class="botao-menu" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-principal">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav class="menu" id="menu-principal" aria-label="Menu principal">
+            <a href="#inicio">Home</a>
+            <a href="#conteudo">Conteúdo</a>
+            <a href="Portifolio_brunoTrigo/html/cadastro.html">cadastro</a>
+            <a href="Portifolio_brunoTrigo/html/login.html">Login</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="hero-inicial" id="inicio">
+            <p class="saudacao">Olá, eu sou</p>
+            <div class="nome-principal">
+                <h1>Bruno <span class="nome-ouro">trigo</span></h1>
+            </div>
+            
+            <p class="descricao-hero">Análise e Desenvolvimento de Sistemas (HTML, CSS, JavaScript e Python)</p>
+
+            <div class="icones_languagem">
+                <ul>
+                    <li>
+                        <span>
+                            <img class="icone" src="Portifolio_brunoTrigo/img/html5.png" alt="HTML5">
+                            <h5 >HTML5</h5>
+                        </span>
+                    </li>
+                    <li>
+                        <span>
+                            <img class="icone" src="Portifolio_brunoTrigo/img/css3.png" alt="CSS3">
+                            <h5 >CSS 3</h5>
+                        </span>
+                    </li>
+                    <li>
+                        <span>
+                            <img class="icone" src="Portifolio_brunoTrigo/img/js.png" alt="JavaScript">
+                            <h5 >Java Script</h5>
+                        </span>
+                    </li>
+                    <li>
+                        <span>
+                            <img class="icone" src="Portifolio_brunoTrigo/img/python.png" alt="Python">
+                            <h5 >Python</h5>
+                        </span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <h1 class="nome-ouro">minhas habilidade</h1>
+
+        <section class="habilidades" id="conteudo" aria-label="Habilidades principais">
+            
+            <button class="seta seta-anterior" aria-label="anterior">←</button>
+            <div class="area-cartoes">
+                <div class="trilho-cartoes">
+
+                    <article class="cartao">
+                    <button class="flip-button" type="button" aria-label="Virar cartão" title="Virar cartão" aria-pressed="false"><img src="img/flip-retro-transparente.png" alt=""></button>
+                    <div class="conteudo-cartao">
+                        <div class="frente-cartao">
+                            <img src="Portifolio_brunoTrigo/img/js.png" alt="JavaScript">
+                            <h3>Programação JavaScript</h3>
+                            <p>Linguagem que cria interatividade, comportamentos e funcionalidades dinâmicas para páginas web.</p>
+                        </div>
+                        <div class="verso-cartao">
+                            <h3>JavaScript na prática</h3>
+                            <p>Usado para criar menus, animações, validações e interações com o usuário.</p>
+                        </div>
+                    </div>
+                    </article>
+
+                    <article class="cartao">
+                    <button class="flip-button" type="button" aria-label="Virar cartão" title="Virar cartão" aria-pressed="false"><img src="Portifolio_brunoTrigo/img/flip-retro-transparente.png" alt=""></button>
+                    <div class="conteudo-cartao">
+                        <div class="frente-cartao">
+                            <img src="Portifolio_brunoTrigo/img/html5.png" alt="HTML">
+                            <h3>Estrutura HTML</h3>    
+                            <p>Estrutura o conteúdo da página com elementos semânticos, organizados e acessíveis.</p>
+                        </div>
+                        <div class="verso-cartao">
+                            <h3>HTML na prática</h3>
+                            <p>Organiza textos, imagens, links, formulários e as demais partes da página.</p>
+                        </div>
+                    </div>
+                    </article>
+
+                    <article class="cartao">
+                    <button class="flip-button" type="button" aria-label="Virar cartão" title="Virar cartão" aria-pressed="false"><img src="img/flip-retro-transparente.png" alt=""></button>
+                    <div class="conteudo-cartao">
+                        <div class="frente-cartao">
+                            <img src="Portifolio_brunoTrigo/img/css3.png" alt="CSS3">
+                            <h3>Estilos CSS</h3>
+                            <p>Define cores, espaços, tamanhos e responsividade para criar interfaces bonitas e adaptáveis.</p>
+                        </div>
+                        <div class="verso-cartao">
+                            <h3>CSS na prática</h3>
+                            <p>Transforma a estrutura HTML em uma interface organizada, bonita e responsiva.</p>
+                        </div>
+                    </div>
+                    </article>
+
+                    <article class="cartao">
+                    <button class="flip-button" type="button" aria-label="Virar cartão" title="Virar cartão" aria-pressed="false"><img src="img/flip-retro-transparente.png" alt=""></button>
+                    <div class="conteudo-cartao">
+                        <div class="frente-cartao">
+                            <img src="Portifolio_brunoTrigo/img/python.png" alt="Python">
+                            <h3>Programação Python</h3>
+                            <p>Linguagem versátil usada para lógica de programação, automações, dados e desenvolvimento.</p>
+                        </div>
+                        <div class="verso-cartao">
+                            <h3>Python na prática</h3>
+                            <p>Ajuda a criar programas, automações, APIs e soluções para trabalhar com dados.</p>
+                        </div>
+                    </div>
+                    </article>
+
+                
+
+                  
+                </div>
+                
+            </div>
+            <button class="seta seta-proxima" aria-label="próximo">→</button>
+                
+        </section>
+    </main>
+    <footer>© 2026 Portfólio aluno de ADS · Projeto pessoal/acadêmico de ADS</footer>
+
+    <script src="Portifolio_brunoTrigo/java_script/card.js"></script>
+    <script src="portifolio_brunoTrigo/java_script/FlipCard.js"></script>
+    <script src="portifolio_brunoTrigo/java_script/menu.js"></script>
+</body>
+</html>
